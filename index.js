@@ -27,8 +27,6 @@ app.use(function (req, res, next) {
 var env = require('dotenv')
 env.config()
 
-console.log(process.env.GOOGLE_MAPS_KEY)
-
 // routes ======================================================================
 // Ex: require('./routes/templateRoute')(app)
 require('./routes/templateRoute')(app)
