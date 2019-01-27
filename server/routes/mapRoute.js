@@ -1,4 +1,4 @@
-const googleMapsService = require('../api/service/googleMapsService')
+const googleMapsService = require('../api/googleMapsService')
 
 module.exports = function(app) {
     app.get('/route', function(req, res){

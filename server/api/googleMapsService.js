@@ -2,6 +2,8 @@ const googleMapsClient = require('@google/maps').createClient({
     key: process.env.GOOGLE_MAPS_KEY
   });
 
+const googleMapsController = require('./googleMapsController')
+
 // Direction. 
 
 module.exports = {
@@ -18,7 +20,8 @@ module.exports = {
             if (err) {
                 console.log(err)
             } else {
-                return callback(response.json.routes)
+                var points = googleMapsController.findBestRoute(response.json.routes)
+                return callback(points)
             }
         })
     }

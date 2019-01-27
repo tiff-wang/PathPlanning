@@ -28,11 +28,11 @@ app.use(function (req, res, next) {
 var env = require('dotenv')
 env.config()
 
-var googleMaps = require('./api/service/googleMapsService')
+var googleMaps = require('./server/api/googleMapsService')
 
 // routes ======================================================================
 // Ex: require('./routes/templateRoute')(app)
-require('./routes/mapRoute')(app)
+require('./server/routes/mapRoute')(app)
 
 // listen (start app with node server.js) ======================================
 app.listen(port);
