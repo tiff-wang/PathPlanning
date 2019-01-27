@@ -15,7 +15,7 @@ class MapContainer extends React.Component {
 
     handleSubmit(evt) {
         evt.preventDefault()
-        axios.get('https://pathplanning.azurewebsites.net/route?origin=%27785%20golden%20gate%20avenue%27&destination=%27345%20spear%20street%27')
+        axios.get('https://pathplanning.azurewebsites.net/route?origin='+ this.state.start +'&destination=' + this.state.end)
           .then(res => {
             var result = res.data
             this.setState({
@@ -27,6 +27,14 @@ class MapContainer extends React.Component {
     render() {
         return (
             <div>
+            <div id="nav">
+                <nav class="navbar navbar-light bg-light">
+                    <div class="row">
+                        <img height='50px' width='50px' class="navbar-brand" src="./src/static/tenderloin.png" alt="logo"></img>
+                        <span class="navbar-brand mb-0 h1">TENDERLOIN</span>
+                    </div>
+                </nav>
+            </div>
             <div id="map">
                 <Map
                     className="map"
