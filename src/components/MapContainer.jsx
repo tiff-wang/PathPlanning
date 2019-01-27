@@ -27,6 +27,14 @@ class MapContainer extends React.Component {
     render() {
         return (
             <div>
+            <div id="nav">
+                <nav class="navbar navbar-light bg-light">
+                    <div class="row">
+                        <img height='50px' width='50px' class="navbar-brand" src="./src/static/tenderloin.png" alt="logo"></img>
+                        <span class="navbar-brand mb-0 h1">TENDERLOIN</span>
+                    </div>
+                </nav>
+            </div>
             <div id="map">
                 <Map
                     className="map"
