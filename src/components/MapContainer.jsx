@@ -9,13 +9,17 @@ class MapContainer extends React.Component {
             { lat: 37.785757, lng: -122.421333 },
             { lat: 37.789352, lng: -122.415346 }
         ]
+
+        const defaultMapOptions = {
+            mapTypeControl: false
+        }
        
         return (
             <Map
                 className="map"
                 google={this.props.google}
-                style={{ height: '100%', position: 'relative', width: '100%' }}
-                zoom={14}>
+                zoom={14} 
+                mapTypeControl={false} >
                 <Polyline
                 fillColor="#0000FF"
                 fillOpacity={0.35}
