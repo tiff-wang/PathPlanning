@@ -1,5 +1,6 @@
 import React from 'react'
 import {Map, Polyline, GoogleApiWrapper} from 'google-maps-react'
+import axios from 'axios'
 
 class MapContainer extends React.Component {
 
@@ -8,31 +9,19 @@ class MapContainer extends React.Component {
         this.state = {
             start: '',
             end: '',
-            polyline: [
-                { lat: 37.789411, lng: -122.422116 },
-                { lat: 37.785757, lng: -122.421333 },
-                { lat: 37.789352, lng: -122.415346 }
-            ]
+            polyline: []
         }
     }
 
     handleSubmit(evt) {
         evt.preventDefault()
-        console.log(this.state)
-        // var emails = ''
-        // axios.get('/api/members')
-        //   .then(res => {
-        //     var members = res.data
-        //     for (let i = 0; i < members.length; i++) {
-        //         if ( (members[i].member_type == 'Subscriber' && this.state.subscribers) ||
-        //              (members[i].member_type == 'Active Member' && this.state.active_members) ||
-        //              (members[i].member_type == 'Contributer' && this.state.contributers) ||
-        //              (members[i].member_type == 'Executive' && this.state.executives ) ) {
-        //                 emails = emails + members[i].email + ', '
-        //         }
-        //     }
-        //     this.sendNewsletter(this, emails)
-        // })
+        axios.get('https://pathplanning.azurewebsites.net/route?origin=%27785%20golden%20gate%20avenue%27&destination=%27345%20spear%20street%27')
+          .then(res => {
+            var result = res.data
+            this.setState({
+                polyline: result
+            })
+        })
     }
 
     render() {
