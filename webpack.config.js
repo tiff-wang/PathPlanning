@@ -8,7 +8,11 @@ var config = {
   },
   devServer: {
     inline: true,
-    port: 5000
+    port: 5000,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+    }
   },
   module: {
     rules: [
