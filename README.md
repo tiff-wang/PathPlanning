@@ -1,1 +1,3 @@
 # PathPlanning
+
+Both of us, John Wu and Tiffany Wang, have been to San Francisco multiple times in the past few years. While there are many nice areas, San Francisco contains a number of neighbourhoods which you would likely want to avoid. This idea inspired us to create "Tenderloin". Tenderloin is an application which helps you pick the safest walking path between two destinations. It makes the decision based on existing crime data and aims to avoid areas with a high density of crimes. Our application was built using react and node.js while the data processing was done in python. It also leverage the Google Maps API for options of different possible routes.
