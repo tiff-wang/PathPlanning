@@ -24,9 +24,8 @@
     margin: 0 5px;
 }
 
-#id nav img {
-    height: 50px;
-    margin-left: 20px;
+#nav .navbar {
+    padding-left: 35px;
 }
 
 .navbar-brand {
