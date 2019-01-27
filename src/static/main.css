@@ -1,0 +1,25 @@
+#map { 
+    position: absolute; 
+    height: 100%; 
+    width: 100%; 
+}
+
+#form { 
+    position: absolute; 
+    top: 20px; 
+    margin-left: 20px;
+    z-index: 99; 
+}
+
+#form input {
+    width: 300px;
+    margin: 0 5px;
+    border-radius: 10px;
+    border: transparent;
+    background: rgba(255,255,255,0.95);
+}
+
+#form button {
+    border-radius: 10px;
+    margin: 0 5px;
+}
