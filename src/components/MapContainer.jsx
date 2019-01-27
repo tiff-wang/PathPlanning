@@ -15,7 +15,7 @@ class MapContainer extends React.Component {
 
     handleSubmit(evt) {
         evt.preventDefault()
-        axios.get('https://pathplanning.azurewebsites.net/route?origin=%27785%20golden%20gate%20avenue%27&destination=%27345%20spear%20street%27')
+        axios.get('https://pathplanning.azurewebsites.net/route?origin='+ this.state.start +'&destination=' + this.state.end)
           .then(res => {
             var result = res.data
             this.setState({
