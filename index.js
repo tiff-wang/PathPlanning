@@ -1,5 +1,6 @@
 //set up the server
 
+
 var express = require('express')
 var app = express()
 var port = process.env.PORT || 5000
@@ -27,9 +28,11 @@ app.use(function (req, res, next) {
 var env = require('dotenv')
 env.config()
 
+var googleMaps = require('./api/service/googleMapsService')
+
 // routes ======================================================================
 // Ex: require('./routes/templateRoute')(app)
-require('./routes/templateRoute')(app)
+require('./routes/mapRoute')(app)
 
 // listen (start app with node server.js) ======================================
 app.listen(port);
