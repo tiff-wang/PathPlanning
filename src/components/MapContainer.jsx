@@ -1,5 +1,6 @@
 import React from 'react';
 import {Map, Polyline, GoogleApiWrapper} from 'google-maps-react';
+import {SearchBox} from 'react-google-maps/lib/components/places/SearchBox'
 
 class MapContainer extends React.Component {
 
