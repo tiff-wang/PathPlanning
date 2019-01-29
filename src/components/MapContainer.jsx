@@ -9,19 +9,37 @@ class MapContainer extends React.Component {
         this.state = {
             start: '',
             end: '',
-            polyline: []
+            polyline: [],
+            alternatives: []
         }
     }
 
     handleSubmit(evt) {
         evt.preventDefault()
-        axios.get('https://pathplanning.azurewebsites.net/route?origin='+ this.state.start +'&destination=' + this.state.end)
+        axios.get(process.env.SERVER_URL + '/route?origin='+ this.state.start +'&destination=' + this.state.end)
           .then(res => {
             var result = res.data
+            console.log(result)
             this.setState({
-                polyline: result
+                polyline: result.best,
+                alternatives: result.all
             })
         })
+    }
+
+    createAlternatives() {
+        let alts = []
+        for (let i = 0; i < this.state.alternatives.length; i++) {
+            alts.push(<Polyline
+                fillColor="#0000FF"
+                fillOpacity={0.35}
+                path={this.state.alternatives[i]}
+                strokeColor="#0000FF"
+                strokeOpacity={0.3}
+                strokeWeight={2}
+                />)
+        }
+        return alts
     }
 
     render() {
@@ -46,9 +64,10 @@ class MapContainer extends React.Component {
                     fillOpacity={0.35}
                     path={this.state.polyline}
                     strokeColor="#0000FF"
-                    strokeOpacity={0.8}
+                    strokeOpacity={0.9}
                     strokeWeight={2}
                     />
+                    {this.createAlternatives()}
                 </Map>
             </div>
             <div id="form">
@@ -69,7 +88,6 @@ class MapContainer extends React.Component {
       }
 }
 
-
 export default GoogleApiWrapper({
-    apiKey: 'AIzaSyD6CHq7534Kd6KYPcqHSYTqu8GvcRJIbRw'
+    apiKey: process.env.GOOGLE_MAPS_KEY
 })(MapContainer)
